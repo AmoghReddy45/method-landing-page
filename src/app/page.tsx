@@ -137,7 +137,7 @@ export default function Home() {
           Every Decision Tracked.<br />
           <span className="block mt-2">Every Action Connected.</span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl font-medium">Method is an AI workspace that transforms your meetings into organized notes, actionable tasks, and connected intelligence — ensuring nothing falls through the cracks.</p>
+        <p className="text-base md:text-lg text-gray-700 mb-8 max-w-xl font-medium">Method is an AI workspace that transforms your meetings into organized notes, actionable tasks, and connected intelligence — ensuring nothing falls through the cracks.</p>
         <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto">
           <input 
             type="email" 
