@@ -109,7 +109,7 @@ const points = [
                 </span>
               </span>.
             </p>
-            <div className="p-4 bg-[#FAFAFA] rounded-lg border border-[#EAEAEA]">
+            <div className="p-4 bg-[#FAFAFA] rounded-lg border border-[#C7D2FE]">
               <div className="text-[13px] text-[#000] font-medium">💡 Smart connections found</div>
               <div className="text-[12px] text-[#666] mt-1">2 related decisions • 1 linked ticket</div>
             </div>
@@ -125,7 +125,7 @@ const points = [
       <div className="w-full h-full flex items-center justify-center p-4">
         <div className="w-full max-w-lg h-96 bg-white rounded-2xl shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.06)] p-8 border-0 overflow-hidden">
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-10 h-10 bg-[#F5F5F5] rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-[#F0F4FF] rounded-lg flex items-center justify-center border border-[#C7D2FE]">
               <span className="text-[#666] text-lg">🎯</span>
             </div>
             <div>

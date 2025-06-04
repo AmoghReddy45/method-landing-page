@@ -93,6 +93,17 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  // Scroll to top and reset URL on page load/refresh
+  useEffect(() => {
+    // Scroll to top
+    window.scrollTo(0, 0);
+    
+    // Reset URL to base URL (remove hash fragments)
+    if (window.location.hash || window.location.pathname !== '/') {
+      window.history.replaceState(null, '', '/');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#E8EFFF] to-[#F5F8FF] font-sans">
       {/* Add Inter font */}
@@ -193,7 +204,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                   </button>
-                  <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#000] hover:bg-[#333] text-white rounded-lg text-[13px] font-medium transition-all duration-150 hover:-translate-y-[1px]">
+                  <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#F0F4FF] hover:bg-[#E8EFFF] text-[#000] border border-[#C7D2FE] rounded-lg text-[13px] font-medium transition-all duration-150 hover:-translate-y-[1px]">
                     <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m9.032 4.026a9.001 9.001 0 10-13.432 0m13.432 0A9.001 9.001 0 0112 21a9.001 9.001 0 01-5.716-2.026" />
                     </svg>
@@ -511,7 +522,7 @@ export default function Home() {
                 <div className="content-section mb-12">
                   <div className="section-header flex justify-between items-center mb-5">
                     <h2 className="section-title-main text-[18px] font-semibold text-[#000] tracking-[-0.02em]">Key Decisions</h2>
-                    <button className="sync-button flex items-center gap-1.5 px-3 py-1.5 bg-[#000] hover:bg-[#333] text-white rounded-lg text-[13px] font-medium transition-all duration-150 hover:-translate-y-[1px]">
+                    <button className="sync-button flex items-center gap-1.5 px-3 py-1.5 bg-[#F0F4FF] hover:bg-[#E8EFFF] text-[#000] border border-[#C7D2FE] rounded-lg text-[13px] font-medium transition-all duration-150 hover:-translate-y-[1px]">
                       <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                       </svg>
