@@ -54,6 +54,13 @@ export default function Home() {
     setLoading(false);
   };
 
+  const scrollToWaitlist = () => {
+    const heroSection = document.getElementById('waitlist');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -94,6 +101,10 @@ export default function Home() {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html {
+          scroll-behavior: smooth;
         }
       `}</style>
 
@@ -163,11 +174,11 @@ export default function Home() {
             <div className="workspace-header bg-white border-b border-gray-200 px-6 py-4">
               <div className="header-content flex justify-between items-center">
                 <div className="breadcrumb flex items-center text-sm">
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 cursor-pointer">Engineering</a>
+                  <span className="text-gray-600 cursor-pointer hover:text-blue-600 transition-colors duration-200">Engineering</span>
                   <svg className="w-4 h-4 mx-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 cursor-pointer">Q1 Sprint Planning</a>
+                  <span className="text-gray-600 cursor-pointer hover:text-blue-600 transition-colors duration-200">Q1 Sprint Planning</span>
                   <svg className="w-4 h-4 mx-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -221,32 +232,32 @@ export default function Home() {
                   <div className="section-title text-xs font-semibold uppercase tracking-wider text-gray-500 mb-6">Workspaces</div>
                   <div className="space-y-3">
                     <div className="sidebar-item active relative">
-                      <a href="#" className="sidebar-link active flex items-center justify-between p-4 rounded-xl text-gray-900 text-sm font-medium bg-white shadow-sm transition-all duration-200 cursor-pointer hover:shadow-md border border-gray-100">
+                      <div className="sidebar-link active flex items-center justify-between p-4 rounded-xl text-gray-900 text-sm font-medium bg-white shadow-sm transition-all duration-200 cursor-pointer hover:shadow-md border border-gray-100">
                         <div className="flex items-center">
                           <span className="sidebar-icon text-xl mr-4">📅</span>
                           <span>Q1 Sprint Planning</span>
                         </div>
                         <span className="sidebar-badge bg-blue-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full">3</span>
-                      </a>
+                      </div>
                       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-10 bg-blue-600 rounded-r"></div>
                     </div>
                     <div className="sidebar-item">
-                      <a href="#" className="sidebar-link flex items-center p-4 rounded-xl text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">
+                      <div className="sidebar-link flex items-center p-4 rounded-xl text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">
                         <span className="sidebar-icon text-xl mr-4">🚀</span>
                         <span>Product Roadmap</span>
-                      </a>
+                      </div>
                     </div>
                     <div className="sidebar-item">
-                      <a href="#" className="sidebar-link flex items-center p-4 rounded-xl text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">
+                      <div className="sidebar-link flex items-center p-4 rounded-xl text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">
                         <span className="sidebar-icon text-xl mr-4">🐛</span>
                         <span>Bug Triage</span>
-                      </a>
+                      </div>
                     </div>
                     <div className="sidebar-item">
-                      <a href="#" className="sidebar-link flex items-center p-4 rounded-xl text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">
+                      <div className="sidebar-link flex items-center p-4 rounded-xl text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">
                         <span className="sidebar-icon text-xl mr-4">📊</span>
                         <span>Weekly Standup</span>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -255,13 +266,13 @@ export default function Home() {
                   <div className="section-title text-xs font-semibold uppercase tracking-wider text-gray-500 mb-6">Recent Meetings</div>
                   <div className="space-y-2">
                     <div className="sidebar-item">
-                      <a href="#" className="sidebar-link block p-3 rounded-lg text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">API Architecture Review</a>
+                      <div className="sidebar-link block p-3 rounded-lg text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">API Architecture Review</div>
                     </div>
                     <div className="sidebar-item">
-                      <a href="#" className="sidebar-link block p-3 rounded-lg text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">Customer Feedback Session</a>
+                      <div className="sidebar-link block p-3 rounded-lg text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">Customer Feedback Session</div>
                     </div>
                     <div className="sidebar-item">
-                      <a href="#" className="sidebar-link block p-3 rounded-lg text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">Infrastructure Planning</a>
+                      <div className="sidebar-link block p-3 rounded-lg text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">Infrastructure Planning</div>
                     </div>
                   </div>
                 </div>
@@ -589,7 +600,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
-              onClick={handleWaitlistSubmit}
+              onClick={scrollToWaitlist}
               disabled={loading}
               className="bg-black text-white px-8 py-4 rounded-lg font-semibold shadow hover:scale-105 transition text-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
