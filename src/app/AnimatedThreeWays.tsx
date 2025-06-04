@@ -8,72 +8,76 @@ const points = [
     description: "Beautiful, organized notes—automatically created from every meeting.",
     diagram: (
       <div className="w-full h-full flex items-center justify-center p-4">
-        <div className="w-full max-w-lg h-96 bg-white rounded-2xl shadow-xl p-8 border overflow-y-auto">
+        <div className="w-full max-w-lg h-96 bg-white rounded-2xl shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.06)] p-8 border-0 overflow-hidden relative">
           <div className="mb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-2">Sprint Planning Meeting</h2>
-            <div className="flex items-center gap-3 text-base text-gray-600">
+            <h2 className="text-[20px] font-bold text-[#000] mb-2 tracking-[-0.02em]">Sprint Planning Meeting</h2>
+            <div className="flex items-center gap-3 text-[13px] text-[#666]">
               <span>📅 Today 2:00 PM</span>
+              <div className="w-[3px] h-[3px] bg-[#CCC] rounded-full"></div>
               <span>Sarah, Mike +5</span>
             </div>
           </div>
           
           <div className="space-y-6">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3 text-base">Key Decisions</h3>
-              <div className="space-y-2 text-base text-gray-700">
+              <h3 className="font-semibold text-[#000] mb-3 text-[16px] tracking-[-0.01em]">Key Decisions</h3>
+              <div className="space-y-2 text-[14px] text-[#333]">
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Prioritize API performance optimization</span>
+                  <div className="w-1.5 h-1.5 bg-[#DDD] rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Prioritize <span className="font-medium border-b-[1.5px] border-[#C7D2FE] hover:border-[#A5B4FC] transition-all duration-150 cursor-pointer">API performance optimization</span></span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Increase Q2 infrastructure budget by 20%</span>
+                  <div className="w-1.5 h-1.5 bg-[#DDD] rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Increase <span className="font-medium border-b-[1.5px] border-[#C7D2FE] hover:border-[#A5B4FC] transition-all duration-150 cursor-pointer">Q2 infrastructure budget</span> by 20%</span>
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3 text-base">Action Items</h3>
-              <div className="space-y-2 text-base text-gray-700">
+              <h3 className="font-semibold text-[#000] mb-3 text-[16px] tracking-[-0.01em]">Action Items</h3>
+              <div className="space-y-2 text-[14px] text-[#333]">
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-[#DDD] rounded-full mt-2 flex-shrink-0"></div>
                   <span>Set up caching layer (Sarah, Sprint 24)</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-[#DDD] rounded-full mt-2 flex-shrink-0"></div>
                   <span>Load testing environment (Mike)</span>
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3 text-base">Timeline & Budget</h3>
-              <div className="space-y-2 text-base text-gray-700">
+              <h3 className="font-semibold text-[#000] mb-3 text-[16px] tracking-[-0.01em]">Timeline & Budget</h3>
+              <div className="space-y-2 text-[14px] text-[#333]">
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-[#DDD] rounded-full mt-2 flex-shrink-0"></div>
                   <span>API optimization due March 15th</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-[#DDD] rounded-full mt-2 flex-shrink-0"></div>
                   <span>Infrastructure budget: $50k → $60k</span>
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3 text-base">Next Steps</h3>
-              <div className="space-y-2 text-base text-gray-700">
+              <h3 className="font-semibold text-[#000] mb-3 text-[16px] tracking-[-0.01em]">Next Steps</h3>
+              <div className="space-y-2 text-[14px] text-[#333]">
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-[#DDD] rounded-full mt-2 flex-shrink-0"></div>
                   <span>Review infrastructure proposal</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 bg-[#DDD] rounded-full mt-2 flex-shrink-0"></div>
                   <span>Schedule follow-up for Sprint 25 planning</span>
                 </div>
               </div>
             </div>
           </div>
+          
+          {/* Bottom fade overlay */}
+          <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none rounded-b-2xl"></div>
         </div>
       </div>
     ),
@@ -83,31 +87,31 @@ const points = [
     description: "Smart underlines surface context and link decisions across meetings, so nothing falls through the cracks.",
     diagram: (
       <div className="w-full h-full flex items-center justify-center p-4">
-        <div className="w-full max-w-lg h-96 bg-white rounded-2xl shadow-xl p-8 border">
-          <div className="text-base text-gray-800 leading-relaxed">
-            <div className="mb-8 text-center font-semibold text-xl text-gray-900">Smart Context Detection</div>
-            <p className="mb-6 text-base leading-7">
+        <div className="w-full max-w-lg h-96 bg-white rounded-2xl shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.06)] p-8 border-0 overflow-hidden">
+          <div className="text-[14px] text-[#333] leading-relaxed">
+            <div className="mb-8 text-center font-semibold text-[20px] text-[#000] tracking-[-0.02em]">Smart Context Detection</div>
+            <p className="mb-6 text-[14px] leading-[1.6]">
               The team agreed to prioritize the{" "}
-              <span className="underline decoration-[#0066FF] decoration-2 underline-offset-4 cursor-pointer relative group bg-blue-50 px-2 py-1 rounded">
+              <span className="font-medium border-b-[1.5px] border-[#C7D2FE] hover:border-[#A5B4FC] transition-all duration-150 cursor-pointer relative group bg-[#FAFAFA] px-2 py-1 rounded">
                 API performance issues
-                <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-black text-white text-sm rounded px-4 py-2 opacity-0 group-hover:opacity-100 transition pointer-events-none whitespace-nowrap">
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-[#000] text-white text-[12px] rounded px-3 py-1.5 opacity-0 group-hover:opacity-100 transition pointer-events-none whitespace-nowrap">
                   → JIRA: API-2847
                 </span>
               </span>{" "}
               blocking the mobile release.
             </p>
-            <p className="text-base leading-7">
+            <p className="text-[14px] leading-[1.6] mb-8">
               Sarah will lead with a{" "}
-              <span className="underline decoration-[#0066FF] decoration-2 underline-offset-4 cursor-pointer relative group bg-blue-50 px-2 py-1 rounded">
+              <span className="font-medium border-b-[1.5px] border-[#C7D2FE] hover:border-[#A5B4FC] transition-all duration-150 cursor-pointer relative group bg-[#FAFAFA] px-2 py-1 rounded">
                 target completion by March 15th
-                <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-black text-white text-sm rounded px-4 py-2 opacity-0 group-hover:opacity-100 transition pointer-events-none whitespace-nowrap">
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-[#000] text-white text-[12px] rounded px-3 py-1.5 opacity-0 group-hover:opacity-100 transition pointer-events-none whitespace-nowrap">
                   Added to calendar
                 </span>
               </span>.
             </p>
-            <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <div className="text-sm text-blue-800 font-medium">💡 Smart connections found</div>
-              <div className="text-sm text-blue-700 mt-1">2 related decisions • 1 linked ticket</div>
+            <div className="p-4 bg-[#FAFAFA] rounded-lg border border-[#EAEAEA]">
+              <div className="text-[13px] text-[#000] font-medium">💡 Smart connections found</div>
+              <div className="text-[12px] text-[#666] mt-1">2 related decisions • 1 linked ticket</div>
             </div>
           </div>
         </div>
@@ -119,31 +123,41 @@ const points = [
     description: "AI detects action items and helps your team follow through—every time.",
     diagram: (
       <div className="w-full h-full flex items-center justify-center p-4">
-        <div className="w-full max-w-lg h-96 bg-white rounded-2xl shadow-xl p-8 border">
+        <div className="w-full max-w-lg h-96 bg-white rounded-2xl shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.06)] p-8 border-0 overflow-hidden">
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-              <span className="text-blue-700 text-xl">🎯</span>
+            <div className="w-10 h-10 bg-[#F5F5F5] rounded-lg flex items-center justify-center">
+              <span className="text-[#666] text-lg">🎯</span>
             </div>
             <div>
-              <div className="font-semibold text-xl text-gray-900">3 action items detected</div>
-              <div className="text-base text-gray-600">Ready for your review</div>
+              <div className="font-semibold text-[20px] text-[#000] tracking-[-0.02em]">3 action items detected</div>
+              <div className="text-[14px] text-[#666]">Ready for your review</div>
             </div>
           </div>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4 p-4 bg-green-50 rounded-lg border border-green-200">
-              <input type="checkbox" checked readOnly className="text-green-600 w-5 h-5" />
-              <span className="text-base text-gray-800 font-medium">Optimize API endpoints</span>
+          <div className="space-y-3">
+            <div className="flex items-center gap-4 p-3 bg-[#F5F5F5] rounded-lg border border-[#E5E5E5]">
+              <div className="w-4 h-4 border-[1.5px] border-[#000] rounded-[4px] flex items-center justify-center flex-shrink-0 bg-[#000]">
+                <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <span className="text-[14px] text-[#000] font-medium">Optimize API endpoints</span>
             </div>
-            <div className="flex items-center gap-4 p-4 bg-green-50 rounded-lg border border-green-200">
-              <input type="checkbox" checked readOnly className="text-green-600 w-5 h-5" />
-              <span className="text-base text-gray-800 font-medium">Set up staging environment</span>
+            <div className="flex items-center gap-4 p-3 bg-[#F5F5F5] rounded-lg border border-[#E5E5E5]">
+              <div className="w-4 h-4 border-[1.5px] border-[#000] rounded-[4px] flex items-center justify-center flex-shrink-0 bg-[#000]">
+                <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <span className="text-[14px] text-[#000] font-medium">Set up staging environment</span>
             </div>
-            <div className="flex items-center gap-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <input type="checkbox" readOnly className="text-blue-600 w-5 h-5" />
-              <span className="text-base text-gray-800 font-medium">Review infrastructure proposal</span>
+            <div className="flex items-center gap-4 p-3 bg-white rounded-lg border border-[#EAEAEA]">
+              <div className="w-4 h-4 border-[1.5px] border-[#DDD] rounded-[4px] flex items-center justify-center flex-shrink-0 hover:border-[#000] transition-all">
+                <div className="w-1.5 h-1.5 bg-[#000] rounded-[1px] opacity-0 hover:opacity-20 transition-opacity"></div>
+              </div>
+              <span className="text-[14px] text-[#000] font-medium">Review infrastructure proposal</span>
             </div>
           </div>
-          <button className="w-full mt-8 bg-blue-100 text-blue-700 text-base py-4 rounded-xl hover:bg-blue-200 transition font-semibold">
+          <button className="w-full mt-8 bg-[#000] hover:bg-[#333] text-white text-[13px] py-3 rounded-lg transition font-medium">
             Sync to Jira
           </button>
         </div>

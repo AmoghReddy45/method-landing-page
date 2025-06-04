@@ -9,6 +9,7 @@ export default function Home() {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [showNavBackground, setShowNavBackground] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isWorkspaceDropdownOpen, setIsWorkspaceDropdownOpen] = useState(false);
   
   // Waitlist form states
   const [email, setEmail] = useState("");
@@ -169,55 +170,51 @@ export default function Home() {
         
         {/* Enhanced Workspace Preview Window */}
         <div className="ai-preview mt-16 w-full flex justify-center">
-          <div className="workspace-window bg-white rounded-xl shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_10px_10px_-5px_rgba(0,0,0,0.04)] max-w-7xl w-full relative overflow-hidden border border-gray-200">
+          <div className="workspace-window bg-white rounded-2xl shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.04),0_12px_24px_rgba(0,0,0,0.06)] max-w-7xl w-full relative overflow-hidden">
             {/* Header */}
-            <div className="workspace-header bg-white border-b border-gray-200 px-6 py-4">
+            <div className="workspace-header bg-white border-b border-[#EAEAEA] px-5 py-3">
               <div className="header-content flex justify-between items-center">
-                <div className="breadcrumb flex items-center text-sm">
-                  <span className="text-gray-600 cursor-pointer hover:text-blue-600 transition-colors duration-200">Engineering</span>
-                  <svg className="w-4 h-4 mx-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                  <span className="text-gray-600 cursor-pointer hover:text-blue-600 transition-colors duration-200">Q1 Sprint Planning</span>
-                  <svg className="w-4 h-4 mx-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                  <span className="text-gray-900 font-medium">March 8 Meeting</span>
+                <div className="breadcrumb flex items-center text-[13px]">
+                  <span className="text-[#666] cursor-pointer hover:text-[#000] hover:bg-[#F5F5F5] transition-all duration-150 px-2 py-1 rounded-md -mx-2">Meetings</span>
+                  <span className="text-[#DDD] mx-1 text-[10px]">›</span>
+                  <span className="text-[#666] cursor-pointer hover:text-[#000] hover:bg-[#F5F5F5] transition-all duration-150 px-2 py-1 rounded-md">Q1 Sprint Planning</span>
+                  <span className="text-[#DDD] mx-1 text-[10px]">›</span>
+                  <span className="text-[#000] font-medium px-2 py-1">March 8 Meeting</span>
                 </div>
                 
-                <div className="header-actions flex items-center gap-3">
-                  <button className="w-9 h-9 flex items-center justify-center rounded-lg border-0 bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-all duration-200 cursor-pointer">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                <div className="header-actions flex items-center gap-2">
+                  <button className="w-8 h-8 flex items-center justify-center rounded-lg text-[#666] hover:bg-[#F5F5F5] hover:text-[#000] transition-all duration-150">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                   </button>
-                  <button className="w-9 h-9 flex items-center justify-center rounded-lg border-0 bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-all duration-200 cursor-pointer">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                  <button className="w-8 h-8 flex items-center justify-center rounded-lg text-[#666] hover:bg-[#F5F5F5] hover:text-[#000] transition-all duration-150">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                     </svg>
                   </button>
-                  <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 border-0 rounded-lg text-sm font-medium text-gray-900 cursor-pointer transition-all duration-200">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m9.032 4.026a9.001 9.001 0 10-13.432 0m13.432 0A9.001 9.001 0 0112 21a9.001 9.001 0 01-5.716-2.026" />
+                  <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#000] hover:bg-[#333] text-white rounded-lg text-[13px] font-medium transition-all duration-150 hover:-translate-y-[1px]">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m9.032 4.026a9.001 9.001 0 10-13.432 0m13.432 0A9.001 9.001 0 0112 21a9.001 9.001 0 01-5.716-2.026" />
                     </svg>
                     Share
                   </button>
-                  <div className="avatar-stack flex items-center ml-4 pl-4 border-l border-gray-200">
-                    <div className="avatar w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-semibold -ml-2 first:ml-0 border-2 border-white cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md relative group bg-green-500 z-10">
+                  <div className="avatar-stack flex items-center ml-3 pl-3 border-l border-[#EAEAEA]">
+                    <div className="avatar w-7 h-7 rounded-full flex items-center justify-center text-white text-[11px] font-semibold -ml-2 first:ml-0 border-2 border-white cursor-pointer transition-all duration-150 hover:-translate-y-0.5 hover:scale-105 relative group bg-[#00B388] z-10">
                       S
-                      <span className="avatar-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-1.5 rounded-md text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 mb-2 group-hover:opacity-100">Sarah Chen</span>
+                      <span className="avatar-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-[#000] text-white px-2 py-1 rounded-md text-[11px] whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-150 mb-2 group-hover:opacity-100">Sarah Chen</span>
                     </div>
-                    <div className="avatar w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-semibold -ml-2 border-2 border-white cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md relative group bg-blue-500 z-10">
+                    <div className="avatar w-7 h-7 rounded-full flex items-center justify-center text-white text-[11px] font-semibold -ml-2 border-2 border-white cursor-pointer transition-all duration-150 hover:-translate-y-0.5 hover:scale-105 relative group bg-[#0084FF] z-10">
                       M
-                      <span className="avatar-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-1.5 rounded-md text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 mb-2 group-hover:opacity-100">Mike Johnson</span>
+                      <span className="avatar-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-[#000] text-white px-2 py-1 rounded-md text-[11px] whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-150 mb-2 group-hover:opacity-100">Mike Johnson</span>
                     </div>
-                    <div className="avatar w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-semibold -ml-2 border-2 border-white cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md relative group bg-amber-500 z-10">
+                    <div className="avatar w-7 h-7 rounded-full flex items-center justify-center text-white text-[11px] font-semibold -ml-2 border-2 border-white cursor-pointer transition-all duration-150 hover:-translate-y-0.5 hover:scale-105 relative group bg-[#FF6B00] z-10">
                       J
-                      <span className="avatar-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-1.5 rounded-md text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 mb-2 group-hover:opacity-100">Jennifer Lee</span>
+                      <span className="avatar-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-[#000] text-white px-2 py-1 rounded-md text-[11px] whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-150 mb-2 group-hover:opacity-100">Jennifer Lee</span>
                     </div>
-                    <div className="avatar w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-semibold -ml-2 border-2 border-white cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md relative group bg-gray-500 z-10">
+                    <div className="avatar w-7 h-7 rounded-full flex items-center justify-center text-white text-[11px] font-semibold -ml-2 border-2 border-white cursor-pointer transition-all duration-150 hover:-translate-y-0.5 hover:scale-105 relative group bg-[#6B7280] z-10">
                       +4
-                      <span className="avatar-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-1.5 rounded-md text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 mb-2 group-hover:opacity-100">Alex, David, Lisa, Tom</span>
+                      <span className="avatar-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-[#000] text-white px-2 py-1 rounded-md text-[11px] whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-150 mb-2 group-hover:opacity-100">Alex, David, Lisa, Tom</span>
                     </div>
                   </div>
                 </div>
@@ -225,54 +222,248 @@ export default function Home() {
             </div>
 
             {/* Content */}
-            <div className="workspace-content flex h-[600px]">
+            <div className="workspace-content flex h-[720px]">
               {/* Enhanced Sidebar */}
-              <div className="workspace-sidebar w-80 bg-gray-50 border-r border-gray-200 p-8 overflow-hidden">
-                <div className="sidebar-section mb-12">
-                  <div className="section-title text-xs font-semibold uppercase tracking-wider text-gray-500 mb-6">Workspaces</div>
-                  <div className="space-y-3">
-                    <div className="sidebar-item active relative">
-                      <div className="sidebar-link active flex items-center justify-between p-4 rounded-xl text-gray-900 text-sm font-medium bg-white shadow-sm transition-all duration-200 cursor-pointer hover:shadow-md border border-gray-100">
-                        <div className="flex items-center">
-                          <span className="sidebar-icon text-xl mr-4">📅</span>
-                          <span>Q1 Sprint Planning</span>
+              <div className="workspace-sidebar w-[260px] bg-[#FAFAFA] border-r border-[#EAEAEA] p-4 overflow-hidden">
+                {/* Workspace Switcher Header */}
+                <div className="workspace-switcher mb-4 relative">
+                  <div 
+                    className="workspace-header flex items-center justify-between p-2 px-3 rounded-md hover:bg-white transition-colors cursor-pointer group"
+                    onClick={() => setIsWorkspaceDropdownOpen(!isWorkspaceDropdownOpen)}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="user-avatar w-6 h-6 rounded-md bg-[#000] flex items-center justify-center text-white text-[11px] font-semibold">
+                        M
+                      </div>
+                      <div className="workspace-info">
+                        <div className="workspace-name text-[13px] font-medium text-[#000]">Method Workspace</div>
+                      </div>
+                    </div>
+                    <svg className={`w-4 h-4 text-[#666] group-hover:text-[#000] transition-all duration-150 ${isWorkspaceDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                  
+                  {/* Workspace Dropdown */}
+                  <div className={`workspace-dropdown absolute top-full left-0 right-0 mt-1 bg-white border border-[#E5E5E5] rounded-lg shadow-lg z-50 transition-all duration-150 ${isWorkspaceDropdownOpen ? 'opacity-100 pointer-events-auto transform scale-100' : 'opacity-0 pointer-events-none transform scale-95'}`}>
+                    <div className="p-3 border-b border-[#F0F0F0]">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="user-avatar w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-[14px] font-semibold">
+                          M
                         </div>
-                        <span className="sidebar-badge bg-blue-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full">3</span>
+                        <div>
+                          <div className="text-[14px] font-medium text-[#000]">Method Workspace</div>
+                          <div className="text-[12px] text-[#666]">sarah@method.com</div>
+                        </div>
                       </div>
-                      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-10 bg-blue-600 rounded-r"></div>
-                    </div>
-                    <div className="sidebar-item">
-                      <div className="sidebar-link flex items-center p-4 rounded-xl text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">
-                        <span className="sidebar-icon text-xl mr-4">🚀</span>
-                        <span>Product Roadmap</span>
+                      <div className="flex gap-2">
+                        <button className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#F5F5F5] hover:bg-[#EFEFEF] rounded-md text-[12px] text-[#666] transition-colors">
+                          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          Settings
+                        </button>
+                        <button className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#F5F5F5] hover:bg-[#EFEFEF] rounded-md text-[12px] text-[#666] transition-colors">
+                          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                          </svg>
+                          Invite
+                        </button>
                       </div>
                     </div>
-                    <div className="sidebar-item">
-                      <div className="sidebar-link flex items-center p-4 rounded-xl text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">
-                        <span className="sidebar-icon text-xl mr-4">🐛</span>
-                        <span>Bug Triage</span>
+                    
+                    <div className="p-2">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.05em] text-[#888] mb-2 px-2">Switch workspace</div>
+                      <div className="space-y-[1px]">
+                        <div className="workspace-option flex items-center justify-between p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer group">
+                          <div className="flex items-center gap-2.5">
+                            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-[11px] font-semibold">M</div>
+                            <span className="text-[13px] text-[#000]">Method Workspace</span>
+                          </div>
+                          <svg className="w-4 h-4 text-[#000]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <div className="workspace-option flex items-center gap-2.5 p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer">
+                          <div className="w-6 h-6 rounded-md bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-white text-[11px] font-semibold">E</div>
+                          <span className="text-[13px] text-[#666]">Engineering Team</span>
+                          <span className="ml-auto text-[11px] text-[#FF8C00] bg-[#FFF4E6] px-1.5 py-0.5 rounded">Guest</span>
+                        </div>
+                        <div className="workspace-option flex items-center gap-2.5 p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer">
+                          <div className="w-6 h-6 rounded-md bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white text-[11px] font-semibold">S</div>
+                          <span className="text-[13px] text-[#666]">Startup Ventures</span>
+                        </div>
+                        <div className="workspace-option flex items-center gap-2.5 p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer">
+                          <div className="w-6 h-6 rounded-md bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white text-[11px] font-semibold">P</div>
+                          <span className="text-[13px] text-[#666]">Personal Projects</span>
+                        </div>
+                      </div>
+                      
+                      <div className="border-t border-[#F0F0F0] mt-2 pt-2">
+                        <div className="workspace-option flex items-center gap-2.5 p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer text-[#666]">
+                          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                          </svg>
+                          <span className="text-[13px]">New workspace</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="sidebar-item">
-                      <div className="sidebar-link flex items-center p-4 rounded-xl text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">
-                        <span className="sidebar-icon text-xl mr-4">📊</span>
-                        <span>Weekly Standup</span>
+                    
+                    <div className="border-t border-[#F0F0F0] p-2">
+                      <div className="workspace-option flex items-center gap-2.5 p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer text-[#666]">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        <span className="text-[13px]">Log out</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
+                {/* Search */}
+                <div className="search-section mb-4">
+                  <div className="search-box flex items-center gap-2 px-3 py-2 bg-white border border-[#E5E5E5] rounded-md text-[13px] text-[#666] hover:border-[#DDD] transition-colors cursor-text">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <span>Search</span>
+                  </div>
+                </div>
+
+                {/* Quick Navigation */}
+                <div className="nav-section mb-6">
+                  <div className="space-y-[1px]">
+                    <div className="nav-item">
+                      <div className="nav-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-white hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v6H8V5z" />
+                        </svg>
+                        <span>Inbox</span>
+                      </div>
+                    </div>
+                    <div className="nav-item">
+                      <div className="nav-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-white hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                        <span>All Updates</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Teamspaces */}
+                <div className="sidebar-section mb-6">
+                  <div className="section-title text-[11px] font-semibold uppercase tracking-[0.05em] text-[#888] mb-2 px-3">Teamspaces</div>
+                  <div className="space-y-[1px]">
+                    <div className="sidebar-item">
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-base">🏠</span>
+                        <span>Engineering</span>
+                      </div>
+                    </div>
+                    <div className="sidebar-item">
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-base">📝</span>
+                        <span>Docs & Wiki</span>
+                      </div>
+                    </div>
+                    <div className="sidebar-item active relative">
+                      <div className="sidebar-link active flex items-center justify-between p-2 px-3 rounded-md text-[13px] font-medium bg-[#EFEFEF] text-[#000] transition-all duration-150 cursor-pointer">
+                        <div className="flex items-center gap-2.5">
+                          <span className="text-base">📅</span>
+                          <span>Meetings</span>
+                        </div>
+                        <span className="sidebar-badge bg-[#FF5A5A] text-white text-[11px] font-semibold px-1.5 py-0.5 rounded-[10px] min-w-[18px] text-center">3</span>
+                      </div>
+                    </div>
+                    <div className="sidebar-item">
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-base">✅</span>
+                        <span>Tasks</span>
+                      </div>
+                    </div>
+                    <div className="sidebar-item">
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-base">🎯</span>
+                        <span>Projects</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Private Workspaces */}
+                <div className="sidebar-section mb-6">
+                  <div className="section-title text-[11px] font-semibold uppercase tracking-[0.05em] text-[#888] mb-2 px-3">Private</div>
+                  <div className="space-y-[1px]">
+                    <div className="sidebar-item">
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-base">🚀</span>
+                        <span>Product Roadmap</span>
+                      </div>
+                    </div>
+                    <div className="sidebar-item">
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-base">💡</span>
+                        <span>Research & Ideas</span>
+                      </div>
+                    </div>
+                    <div className="sidebar-item">
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-base">📊</span>
+                        <span>Weekly Reviews</span>
+                      </div>
+                    </div>
+                    <div className="sidebar-item">
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-base">🐛</span>
+                        <span>Bug Tracking</span>
+                      </div>
+                    </div>
+                    <div className="sidebar-item">
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-base">🎨</span>
+                        <span>Design System</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Recent */}
                 <div className="sidebar-section">
-                  <div className="section-title text-xs font-semibold uppercase tracking-wider text-gray-500 mb-6">Recent Meetings</div>
-                  <div className="space-y-2">
+                  <div className="section-title text-[11px] font-semibold uppercase tracking-[0.05em] text-[#888] mb-2 px-3">Recent</div>
+                  <div className="space-y-[1px]">
                     <div className="sidebar-item">
-                      <div className="sidebar-link block p-3 rounded-lg text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">API Architecture Review</div>
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-sm text-[#999]">📄</span>
+                        <span>API Architecture Review</span>
+                      </div>
                     </div>
                     <div className="sidebar-item">
-                      <div className="sidebar-link block p-3 rounded-lg text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">Customer Feedback Session</div>
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-sm text-[#999]">👥</span>
+                        <span>Team Retrospective</span>
+                      </div>
                     </div>
                     <div className="sidebar-item">
-                      <div className="sidebar-link block p-3 rounded-lg text-gray-600 text-sm hover:bg-white hover:text-gray-900 hover:shadow-sm transition-all duration-200 cursor-pointer">Infrastructure Planning</div>
+                      <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                        <span className="text-sm text-[#999]">💬</span>
+                        <span>Customer Feedback</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Actions */}
+                <div className="mt-6 pt-4 border-t border-[#E5E5E5]">
+                  <div className="sidebar-item">
+                    <div className="sidebar-link flex items-center gap-2.5 p-2 px-3 rounded-md text-[#666] text-[13px] hover:bg-[#EFEFEF] hover:text-[#000] transition-all duration-150 cursor-pointer">
+                      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                      </svg>
+                      <span>Invite members</span>
                     </div>
                   </div>
                 </div>
@@ -280,82 +471,90 @@ export default function Home() {
 
               {/* Enhanced Main Content */}
               <div className="workspace-main flex-1 p-8 overflow-hidden bg-white">
-                <div className="meeting-header mb-8">
-                  <h1 className="meeting-title text-3xl font-bold text-gray-900 mb-2">Sprint Planning Meeting</h1>
-                  <div className="meeting-meta flex items-center gap-4 text-sm text-gray-600">
+                <div className="meeting-header mb-8 pb-6 border-b border-[#EAEAEA]">
+                  <h1 className="meeting-title text-[32px] font-bold text-[#000] mb-2 tracking-[-0.03em]">Sprint Planning Meeting</h1>
+                  <div className="meeting-meta flex items-center gap-3 text-[13px] text-[#666]">
                     <span>March 8, 2025</span>
-                    <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                    <div className="w-[3px] h-[3px] bg-[#CCC] rounded-full"></div>
                     <span>2:00 PM - 2:45 PM</span>
-                    <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                    <div className="w-[3px] h-[3px] bg-[#CCC] rounded-full"></div>
                     <span>45 minutes</span>
-                    <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                    <div className="w-[3px] h-[3px] bg-[#CCC] rounded-full"></div>
                     <span>7 participants</span>
                   </div>
                 </div>
 
+                {/* Auto-Generated Notes Banner */}
+                <div className="notes-banner mb-6">
+                  <div className="flex items-center justify-between p-3 border border-[#EAEAEA] rounded-lg hover:border-[#DDD] hover:bg-[#FAFAFA] transition-all duration-150 cursor-pointer group">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-6 h-6 bg-[#F5F5F5] rounded-md flex items-center justify-center">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" className="text-[#666]">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-[14px] font-medium text-[#000] text-left">Meeting Notes</div>
+                        <div className="text-[12px] text-[#666] text-left">Auto-generated • 2,847 words</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-[#666] text-[13px] group-hover:text-[#000] transition-colors">
+                      <span>Review</span>
+                      <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Enhanced Key Decisions */}
-                <div className="content-section mb-10">
-                  <div className="section-header flex justify-between items-center mb-6">
-                    <h2 className="section-title-main text-xl font-semibold text-gray-900">📌 Key Decisions</h2>
-                    <button className="sync-button flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white border-0 rounded-lg text-sm font-medium cursor-pointer transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md">
-                      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                <div className="content-section mb-12">
+                  <div className="section-header flex justify-between items-center mb-5">
+                    <h2 className="section-title-main text-[18px] font-semibold text-[#000] tracking-[-0.02em]">Key Decisions</h2>
+                    <button className="sync-button flex items-center gap-1.5 px-3 py-1.5 bg-[#000] hover:bg-[#333] text-white rounded-lg text-[13px] font-medium transition-all duration-150 hover:-translate-y-[1px]">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                       </svg>
                       Sync to Jira
                     </button>
                   </div>
                   
-                  <div className="decision-card bg-white border border-gray-200 rounded-xl p-5 mb-3 transition-all duration-200 cursor-pointer hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5">
+                  <div className="decision-card bg-[#FAFAFA] border border-transparent rounded-xl p-5 mb-3 transition-all duration-200 cursor-pointer hover:bg-[#F5F5F5] hover:border-[#E5E5E5] hover:translate-x-[2px]">
                     <div className="decision-content flex gap-4">
-                      <div className="decision-icon-wrapper w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-green-100 text-green-600">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      <div className="decision-icon-wrapper w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#E6F7E6] text-[#00A854]">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
                       <div className="decision-details flex-1">
-                        <p className="decision-text text-base leading-relaxed text-gray-900 mb-3">
-                          Prioritize <span className="smart-link text-blue-600 font-medium border-b-2 border-blue-100 hover:border-blue-600 transition-all duration-200 relative cursor-pointer group">API performance optimization
-                            <span className="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-2 rounded-md text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 mb-2 font-normal group-hover:opacity-100 z-20">→ JIRA: API-2847</span>
+                        <p className="decision-text text-[14px] leading-[1.6] text-[#333] mb-2.5">
+                          Prioritize <span className="smart-link text-[#000] font-medium border-b-[1.5px] border-[#C7D2FE] hover:border-[#A5B4FC] transition-all duration-150 relative cursor-pointer group">API performance optimization
+                            <span className="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-[#000] text-white px-2.5 py-1.5 rounded-md text-[12px] whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-150 mb-1.5 font-normal group-hover:opacity-100 z-20">→ JIRA: API-2847</span>
                           </span> for mobile app release blocker
                         </p>
                         <div className="decision-meta flex items-center gap-2">
-                          <span className="meta-tag inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 rounded-2xl text-xs text-gray-600">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                            Sarah Chen
-                          </span>
-                          <span className="meta-tag inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 rounded-2xl text-xs text-gray-600">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            Due March 15
-                          </span>
+                          <span className="meta-tag inline-flex items-center gap-1 px-2.5 py-1 bg-white border border-[#E5E5E5] rounded-md text-[12px] text-[#666]">Sarah Chen</span>
+                          <span className="meta-tag inline-flex items-center gap-1 px-2.5 py-1 bg-white border border-[#E5E5E5] rounded-md text-[12px] text-[#666]">Due March 15</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="decision-card bg-white border border-gray-200 rounded-xl p-5 mb-3 transition-all duration-200 cursor-pointer hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5">
+                  <div className="decision-card bg-[#FAFAFA] border border-transparent rounded-xl p-5 mb-3 transition-all duration-200 cursor-pointer hover:bg-[#F5F5F5] hover:border-[#E5E5E5] hover:translate-x-[2px]">
                     <div className="decision-content flex gap-4">
-                      <div className="decision-icon-wrapper w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-yellow-100 text-yellow-600">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                      <div className="decision-icon-wrapper w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#FFF4E6] text-[#FF8C00]">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                         </svg>
                       </div>
                       <div className="decision-details flex-1">
-                        <p className="decision-text text-base leading-relaxed text-gray-900 mb-3">
-                          Increase <span className="smart-link text-blue-600 font-medium border-b-2 border-blue-100 hover:border-blue-600 transition-all duration-200 relative cursor-pointer group">Q2 infrastructure budget
-                            <span className="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-2 rounded-md text-xs whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 mb-2 font-normal group-hover:opacity-100 z-20">Previous: $50k → New: $60k</span>
+                        <p className="decision-text text-[14px] leading-[1.6] text-[#333] mb-2.5">
+                          Increase <span className="smart-link text-[#000] font-medium border-b-[1.5px] border-[#C7D2FE] hover:border-[#A5B4FC] transition-all duration-150 relative cursor-pointer group">Q2 infrastructure budget
+                            <span className="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-[#000] text-white px-2.5 py-1.5 rounded-md text-[12px] whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-150 mb-1.5 font-normal group-hover:opacity-100 z-20">Previous: $50k → New: $60k</span>
                           </span> by 20% to support expected growth
                         </p>
                         <div className="decision-meta flex items-center gap-2">
-                          <span className="meta-tag inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 rounded-2xl text-xs text-gray-600">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            Pending CFO approval
-                          </span>
+                          <span className="meta-tag inline-flex items-center gap-1 px-2.5 py-1 bg-white border border-[#E5E5E5] rounded-md text-[12px] text-[#666]">Pending CFO approval</span>
                         </div>
                       </div>
                     </div>
@@ -364,72 +563,57 @@ export default function Home() {
 
                 {/* Enhanced Action Items */}
                 <div className="content-section">
-                  <div className="section-header mb-6">
-                    <h2 className="section-title-main text-xl font-semibold text-gray-900">🎯 Action Items</h2>
+                  <div className="section-header mb-5">
+                    <h2 className="section-title-main text-[18px] font-semibold text-[#000] tracking-[-0.02em]">Action Items</h2>
                   </div>
                   
-                  <div className="task-item bg-gray-50 border border-gray-200 rounded-lg p-4 mb-2 flex items-center gap-4 transition-all duration-200 cursor-pointer hover:border-gray-300 hover:shadow-sm relative overflow-hidden group opacity-70">
-                    <div className="task-checkbox w-5 h-5 border-2 border-blue-600 rounded-md flex items-center justify-center flex-shrink-0 transition-all duration-200 cursor-pointer bg-blue-600">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="task-item completed bg-white border border-[#EAEAEA] rounded-[10px] p-3.5 mb-1.5 flex items-center gap-3 transition-all duration-150 cursor-pointer opacity-60">
+                    <div className="task-checkbox w-4 h-4 border-[1.5px] border-[#000] rounded-[4px] flex items-center justify-center flex-shrink-0 bg-[#000]">
+                      <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>
                     <div className="task-content flex-1">
-                      <div className="task-title text-base text-gray-600 mb-1 font-medium line-through">Implement caching layer for user endpoints</div>
-                      <div className="task-meta-row flex items-center gap-3 text-xs text-gray-500">
+                      <div className="task-title text-[14px] text-[#999] font-[450] line-through">Implement caching layer for user endpoints</div>
+                      <div className="task-meta-row flex items-center gap-3 text-[12px] text-[#666] mt-1">
                         <div className="task-assignee flex items-center gap-1.5">
-                          <div className="task-assignee-avatar w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">M</div>
+                          <div className="task-assignee-avatar w-[18px] h-[18px] rounded-full bg-[#EAEAEA] flex items-center justify-center text-[10px] font-semibold text-[#666]">M</div>
                           <span>mike</span>
                         </div>
-                        <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                        <div className="task-due flex items-center gap-1">
-                          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          Sprint 24
-                        </div>
+                        <div className="w-[3px] h-[3px] bg-[#CCC] rounded-full"></div>
+                        <span>Sprint 24</span>
                       </div>
-                    </div>
-                    <div className="task-actions opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      <button className="text-gray-400 hover:text-gray-600">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>
-                      </button>
                     </div>
                   </div>
 
-                  <div className="task-item bg-white border border-gray-200 rounded-lg p-4 mb-2 flex items-center gap-4 transition-all duration-200 cursor-pointer hover:border-gray-300 hover:shadow-sm relative overflow-hidden group">
-                    <div className="task-checkbox w-5 h-5 border-2 border-gray-300 rounded-md flex items-center justify-center flex-shrink-0 transition-all duration-200 cursor-pointer hover:border-blue-600 group-hover:bg-gray-50">
-                      <div className="w-2 h-2 bg-blue-600 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="task-item bg-white border border-[#EAEAEA] rounded-[10px] p-3.5 mb-1.5 flex items-center gap-3 transition-all duration-150 cursor-pointer hover:border-[#DDD] hover:bg-[#FAFAFA] hover:translate-x-[2px] group">
+                    <div className="task-checkbox w-4 h-4 border-[1.5px] border-[#DDD] rounded-[4px] flex items-center justify-center flex-shrink-0 transition-all duration-150 hover:border-[#000] group-hover:bg-gray-50">
+                      <div className="w-1.5 h-1.5 bg-[#000] rounded-[1px] opacity-0 group-hover:opacity-20 transition-opacity"></div>
                     </div>
                     <div className="task-content flex-1">
-                      <div className="task-title text-base text-gray-900 mb-1 font-medium">Review and approve infrastructure proposal</div>
-                      <div className="task-meta-row flex items-center gap-3 text-xs text-gray-600">
+                      <div className="task-title text-[14px] text-[#000] font-[450]">Review and approve infrastructure proposal</div>
+                      <div className="task-meta-row flex items-center gap-3 text-[12px] text-[#666] mt-1">
                         <div className="task-assignee flex items-center gap-1.5">
-                          <div className="task-assignee-avatar w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">J</div>
+                          <div className="task-assignee-avatar w-[18px] h-[18px] rounded-full bg-[#EAEAEA] flex items-center justify-center text-[10px] font-semibold text-[#666]">J</div>
                           <span>jennifer</span>
                         </div>
-                        <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                        <div className="task-due flex items-center gap-1 text-orange-600">
-                          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          By Mar 12
-                        </div>
+                        <div className="w-[3px] h-[3px] bg-[#CCC] rounded-full"></div>
+                        <span className="text-[#FF6B00]">By Mar 12</span>
                       </div>
-                    </div>
-                    <div className="task-actions opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      <button className="text-gray-400 hover:text-gray-600">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>
-                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* Live Indicator */}
+            <div className="absolute bottom-5 right-5 bg-[#000] text-white px-4 py-2.5 rounded-lg flex items-center gap-2.5 text-[13px] font-medium shadow-lg z-10 cursor-pointer hover:bg-[#333] transition-colors">
+              <div className="w-1.5 h-1.5 bg-[#00FF88] rounded-full" style={{boxShadow: '0 0 0 2px rgba(0, 255, 136, 0.3)', animation: 'pulse 2s infinite'}}></div>
+              <span>AI Assistant</span>
+            </div>
+            
+            {/* Bottom fade overlay */}
+            <div className="absolute bottom-0 left-0 right-0 h-65 bg-gradient-to-t from-white to-transparent pointer-events-none rounded-b-2xl z-20"></div>
           </div>
         </div>
       </section>
@@ -609,6 +793,43 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Add custom styles for the workspace preview */}
+      <style jsx>{`
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.3);
+          }
+          50% {
+            box-shadow: 0 0 0 6px rgba(0, 255, 136, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.3);
+          }
+        }
+        
+        /* Custom scrollbar styling */
+        .workspace-sidebar::-webkit-scrollbar,
+        .workspace-main::-webkit-scrollbar {
+          width: 6px;
+        }
+        
+        .workspace-sidebar::-webkit-scrollbar-track,
+        .workspace-main::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        
+        .workspace-sidebar::-webkit-scrollbar-thumb,
+        .workspace-main::-webkit-scrollbar-thumb {
+          background: #DDD;
+          border-radius: 3px;
+        }
+        
+        .workspace-sidebar::-webkit-scrollbar-thumb:hover,
+        .workspace-main::-webkit-scrollbar-thumb:hover {
+          background: #BBB;
+        }
+      `}</style>
     </div>
   );
 }
