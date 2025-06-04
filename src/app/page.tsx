@@ -613,7 +613,7 @@ export default function Home() {
             </div>
             
             {/* Bottom fade overlay */}
-            <div className="absolute bottom-0 left-0 right-0 h-65 bg-gradient-to-t from-white to-transparent pointer-events-none rounded-b-2xl z-20"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-white/95 to-transparent pointer-events-none rounded-b-2xl z-20"></div>
           </div>
         </div>
       </section>
