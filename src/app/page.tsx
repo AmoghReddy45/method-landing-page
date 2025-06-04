@@ -637,7 +637,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-medium mb-6 text-white leading-tight">
               Works everywhere you do.
             </h2>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed font-normal">
+            <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed font-normal">
               No bot invasions. No permission hassles. Method integrates 
               seamlessly with your existing tools and workflows.
             </p>
@@ -721,10 +721,10 @@ export default function Home() {
           {/* Enhanced Security Section */}
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h3 className="text-4xl font-bold mb-6 text-white">
+              <h3 className="text-3xl md:text-4xl font-medium mb-6 text-white leading-tight">
                 Enterprise-grade security
               </h3>
-              <p className="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
                 Your conversations stay private. Method is SOC 2 Type II certified, 
                 GDPR compliant, and never shares your data.
               </p>
@@ -776,11 +776,11 @@ export default function Home() {
         ></div>
         
         <div className="text-center max-w-4xl relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-black leading-tight">
+          <h2 className="text-3xl md:text-4xl font-medium mb-6 text-black leading-tight">
             The Future of Team Intelligence.
           </h2>
-          <p className="text-xl text-gray-600 mb-16 max-w-2xl mx-auto leading-relaxed">
-            Where every meeting becomes organized knowledge, every decision stays connected, and nothing falls through the cracks.
+          <p className="text-base md:text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Where every meeting becomes organized knowledge and every decision stays connected.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
