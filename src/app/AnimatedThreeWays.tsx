@@ -213,7 +213,7 @@ export default function AnimatedThreeWays() {
       </div>
       <div className="w-full max-w-7xl flex flex-col lg:flex-row gap-20 items-start justify-center">
         {/* Left: Large Diagram */}
-        <div className="w-full lg:w-3/5 h-[500px] bg-gray-50 rounded-2xl flex items-center justify-center transition-all duration-700 ease-in-out sticky top-20">
+        <div className="w-full lg:w-3/5 h-[500px] bg-gray-50 rounded-2xl flex items-center justify-center transition-all duration-700 ease-in-out sticky top-40">
           <div className={`transition-opacity duration-300 ease-in-out ${isTransitioning ? 'opacity-25' : 'opacity-100'}`}>
             {points[selected].diagram}
           </div>
