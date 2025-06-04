@@ -206,6 +206,11 @@ export default function AnimatedThreeWays() {
       <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden lg:block"></div>
       <div className="absolute right-8 top-0 bottom-0 w-px bg-gray-200 hidden lg:block"></div>
       
+      {/* Subtle line divider */}
+      <div className="w-full px-8 mb-20">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E5E7EB] to-transparent"></div>
+      </div>
+      
       <div className="text-center mb-20">
         <h2 className="text-3xl md:text-4xl font-medium mb-4 text-black leading-tight">
           Method transforms how teams work.
