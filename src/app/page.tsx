@@ -243,7 +243,7 @@ export default function Home() {
                     onClick={() => setIsWorkspaceDropdownOpen(!isWorkspaceDropdownOpen)}
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="user-avatar w-6 h-6 rounded-md bg-[#000] flex items-center justify-center text-white text-[11px] font-semibold">
+                      <div className="user-avatar w-6 h-6 rounded-md bg-gradient-to-br from-[#3B82F6] to-[#2563EB] flex items-center justify-center text-white text-[11px] font-semibold">
                         M
                       </div>
                       <div className="workspace-info">
@@ -259,7 +259,7 @@ export default function Home() {
                   <div className={`workspace-dropdown absolute top-full left-0 right-0 mt-1 bg-white border border-[#E5E5E5] rounded-lg shadow-lg z-50 transition-all duration-150 ${isWorkspaceDropdownOpen ? 'opacity-100 pointer-events-auto transform scale-100' : 'opacity-0 pointer-events-none transform scale-95'}`}>
                     <div className="p-3 border-b border-[#F0F0F0]">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="user-avatar w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-[14px] font-semibold">
+                        <div className="user-avatar w-10 h-10 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#2563EB] flex items-center justify-center text-white text-[14px] font-semibold">
                           M
                         </div>
                         <div>
@@ -289,7 +289,7 @@ export default function Home() {
                       <div className="space-y-[1px]">
                         <div className="workspace-option flex items-center justify-between p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer group">
                           <div className="flex items-center gap-2.5">
-                            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-[11px] font-semibold">M</div>
+                            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-[#3B82F6] to-[#2563EB] flex items-center justify-center text-white text-[11px] font-semibold">M</div>
                             <span className="text-[13px] text-[#000]">Method Workspace</span>
                           </div>
                           <svg className="w-4 h-4 text-[#000]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
@@ -297,16 +297,16 @@ export default function Home() {
                           </svg>
                         </div>
                         <div className="workspace-option flex items-center gap-2.5 p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer">
-                          <div className="w-6 h-6 rounded-md bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-white text-[11px] font-semibold">E</div>
+                          <div className="w-6 h-6 rounded-md bg-gradient-to-br from-[#10B981] to-[#059669] flex items-center justify-center text-white text-[11px] font-semibold">E</div>
                           <span className="text-[13px] text-[#666]">Engineering Team</span>
-                          <span className="ml-auto text-[11px] text-[#FF8C00] bg-[#FFF4E6] px-1.5 py-0.5 rounded">Guest</span>
+                          <span className="ml-auto text-[11px] text-[#F59E0B] bg-[#FEF3C7] px-1.5 py-0.5 rounded">Guest</span>
                         </div>
                         <div className="workspace-option flex items-center gap-2.5 p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer">
-                          <div className="w-6 h-6 rounded-md bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white text-[11px] font-semibold">S</div>
+                          <div className="w-6 h-6 rounded-md bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED] flex items-center justify-center text-white text-[11px] font-semibold">S</div>
                           <span className="text-[13px] text-[#666]">Startup Ventures</span>
                         </div>
                         <div className="workspace-option flex items-center gap-2.5 p-2 rounded-md hover:bg-[#F5F5F5] cursor-pointer">
-                          <div className="w-6 h-6 rounded-md bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white text-[11px] font-semibold">P</div>
+                          <div className="w-6 h-6 rounded-md bg-gradient-to-br from-[#F97316] to-[#EA580C] flex items-center justify-center text-white text-[11px] font-semibold">P</div>
                           <span className="text-[13px] text-[#666]">Personal Projects</span>
                         </div>
                       </div>
